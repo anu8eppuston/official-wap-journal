@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速体育 · 故事从稳定开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9d8 0%, #f7d9bc 40%, #f3cfb0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3a2e26;
+        }
+
+        .wrap {
+            max-width: 760px;
+            width: 100%;
+            background: rgba(255, 250, 243, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 20px 40px -12px rgba(110, 68, 40, 0.25), 0 8px 16px rgba(0,0,0,0.03);
+            padding: 2.8rem 2.4rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .wrap {
+                padding: 2rem 1.4rem;
+                border-radius: 32px;
+            }
+        }
+
+        .story-begin {
+            font-size: 1.9rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #5e3e2b;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid #e7cdb5;
+            display: inline-block;
+            line-height: 1.3;
+        }
+
+        .story-begin span {
+            background: #dbb89b;
+            color: #2f241d;
+            padding: 0 0.3rem;
+            border-radius: 12px 4px 12px 4px;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            margin: 1.2rem 0 1.8rem 0;
+            color: #4b3b30;
+            max-width: 90%;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin: 2rem 0 2.2rem 0;
+        }
+
+        .trait-item {
+            background: #fffaf4;
+            padding: 1rem 1.4rem;
+            border-radius: 60px 20px 20px 60px;
+            border-left: 6px solid #d9a87e;
+            box-shadow: 0 2px 8px rgba(158, 108, 66, 0.08);
+            transition: 0.15s;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .trait-item:hover {
+            background: #fff6ec;
+            border-left-color: #bd8b62;
+            transform: translateX(4px);
+        }
+
+        .trait-icon {
+            font-size: 1.3rem;
+            min-width: 1.8rem;
+            color: #a4734b;
+        }
+
+        .trait-text {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .trait-text strong {
+            font-weight: 600;
+            color: #543a28;
+        }
+
+        .scene-note {
+            background: #f3e5d8;
+            padding: 1.2rem 1.6rem;
+            border-radius: 30px;
+            margin: 2rem 0 1.4rem 0;
+            color: #3f332b;
+            font-size: 0.96rem;
+            border: 1px solid #e4cfbc;
+            line-height: 1.8;
+        }
+
+        .scene-note a {
+            color: #6f4e35;
+            text-decoration: none;
+            font-weight: 500;
+            background: #fff9f2;
+            padding: 0.15rem 1rem 0.15rem 0.8rem;
+            border-radius: 60px;
+            border: 1px solid #dbbc9f;
+            transition: 0.1s;
+            display: inline-block;
+            margin: 0 0.1rem;
+        }
+
+        .scene-note a:hover {
+            background: #e7cfb9;
+            border-color: #b68e6d;
+            color: #2d2019;
+        }
+
+        .gentle-outro {
+            margin: 2.4rem 0 0.8rem 0;
+            padding: 1.2rem 0 0.2rem 0;
+            border-top: 1px dashed #dcc6b2;
+            font-style: normal;
+            color: #4f3d30;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini {
+            background: #fcf6ef;
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.6rem 0 0.4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            border: 1px solid #e2d0bd;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #433328;
+            font-size: 0.95rem;
+        }
+
+        .faq-q::before {
+            content: "▸ ";
+            color: #bb8b66;
+        }
+
+        .faq-a {
+            color: #5a483b;
+            font-size: 0.9rem;
+            padding-left: 1.2rem;
+        }
+
+        .footnote {
+            text-align: center;
+            margin-top: 2.2rem;
+            font-size: 0.82rem;
+            color: #7a685a;
+            letter-spacing: 0.02em;
+        }
+
+        .footnote a {
+            color: #6a4f3a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b69478;
+        }
+
+        .footnote a:hover {
+            color: #3d2b1f;
+            border-bottom-style: solid;
+        }
+
+        .inline-link {
+            color: #6f4e35;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dbb999;
+            transition: 0.1s;
+        }
+
+        .inline-link:hover {
+            color: #3f2b1d;
+            border-bottom-color: #a6774f;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="story-begin">
+        <span>一个入口</span> · 不必寻找第二次
+    </div>
+
+    <div class="lead">
+        有些比赛日，最需要的不是复杂的选项，而是一个清晰、不绕路的起点。
+        从第一次打开到后来每一次想起，<a href="https://access-leisu.com" class="inline-link">雷速体育</a> 始终保持着那种稳定的接入感。
+    </div>
+
+    <div class="card-grid">
+        <div class="trait-item">
+            <span class="trait-icon">🌤</span>
+            <span class="trait-text"><strong>直达页面</strong> · 省去层层跳转，每次都能回到熟悉的界面，不必重新适应。</span>
+        </div>
+        <div class="trait-item">
+            <span class="trait-icon">🧭</span>
+            <span class="trait-text"><strong>一致的入口</strong> · 不论从哪个设备打开，入口位置、反应习惯都不变，减少临时寻找的麻烦。</span>
+        </div>
+        <div class="trait-item">
+            <span class="trait-icon">📋</span>
+            <span class="trait-text"><strong>轻量说明</strong> · 页面结构干净，没有冗余干扰，内容与导航都一目了然。</span>
+        </div>
+        <div class="trait-item">
+            <span class="trait-icon">🔄</span>
+            <span class="trait-text"><strong>长期可用</strong> · 链接保持稳定，适合加入书签或记在常用位置，不需要频繁更新记录。</span>
+        </div>
+    </div>
+
+    <div class="scene-note">
+        🏟️ 常见场景：赛前想快速确认阵容、赛中瞄一眼实时动态、赛后看看数据回顾——这些时候你只需要一个可靠的地方。把 <a href="https://access-leisu.com">雷速体育</a> 放在习惯的位置，每次打开都不用重新思考。
+    </div>
+
+    <div class="faq-mini">
+        <div class="faq-item">
+            <span class="faq-q">这个链接与其他入口有什么不同？</span>
+            <span class="faq-a">更侧重稳定的直达体验，页面结构长期保持简洁，适合日常使用。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">我需要每次都重新输入地址吗？</span>
+            <span class="faq-a">不需要。存入书签或记住 <a href="https://access-leisu.com" class="inline-link">雷速体育</a> 这个位置即可，后续访问路径始终一致。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">移动端和电脑端体验一样吗？</span>
+            <span class="faq-a">响应式布局适应各种屏幕，核心入口和内容呈现都保持一致。</span>
+        </div>
+    </div>
+
+    <div class="gentle-outro">
+        一个入口的意义，不在于它多么显眼，而在于每次需要时，它都在那里，
+        不多一步，不少一步。希望 <a href="https://access-leisu.com" class="inline-link">雷速体育</a> 成为你常常想起的那个安静起点。
+    </div>
+
+    <div class="footnote">
+        <a href="https://access-leisu.com">雷速体育</a> · 一直在这里
+    </div>
+</div>
+</body>
+</html>
