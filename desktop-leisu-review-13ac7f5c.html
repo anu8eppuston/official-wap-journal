@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速体育 · 站点介绍</title>
+  <style>
+    /* 全局重置 */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", sans-serif;
+      background: linear-gradient(145deg, #fbe9d7 0%, #f7d9b8 60%, #f0cba0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 2.5rem;
+      line-height: 1.6;
+      color: #2d281c;
+    }
+
+    .page {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* 卡片风格 */
+    .card {
+      background: rgba(255, 252, 245, 0.88);
+      backdrop-filter: blur(2px);
+      border-radius: 40px 16px 40px 16px;
+      box-shadow: 0 12px 28px rgba(140, 90, 40, 0.12), 0 4px 12px rgba(0,0,0,0.04);
+      padding: 2.2rem 2.4rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 18px 32px rgba(120, 75, 30, 0.16);
+    }
+
+    /* Hero 区 */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 2rem 2.4rem;
+      background: linear-gradient(130deg, rgba(255,240,225,0.7), rgba(255,230,205,0.9));
+      border-bottom: 1px solid #eddac2;
+      margin-bottom: 2rem;
+      border-radius: 48px 12px 48px 12px;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #5e3e24;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 6px rgba(190, 130, 70, 0.10);
+    }
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #795d44;
+      max-width: 580px;
+      margin: 0.4rem auto 0.8rem;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #e7cfb0;
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #4e3826;
+      font-weight: 500;
+      backdrop-filter: blur(2px);
+      border: 1px solid #ddc3a0;
+    }
+
+    /* 标题 */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 550;
+      color: #4f3926;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .section-title::before {
+      content: "●";
+      color: #c6975f;
+      font-size: 1.2rem;
+      margin-right: 0.2rem;
+    }
+
+    /* 网格布局 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .grid-item {
+      background: #fcf7ef;
+      border-radius: 24px 8px 24px 8px;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid #ede2d0;
+      transition: transform 0.1s ease, background 0.15s;
+    }
+    .grid-item:hover {
+      background: #faf0e2;
+      transform: translateY(-2px);
+    }
+    .grid-item h3 {
+      font-size: 1.2rem;
+      font-weight: 560;
+      color: #4f3926;
+      margin-bottom: 0.5rem;
+    }
+    .grid-item p {
+      color: #3f3429;
+      font-size: 0.98rem;
+    }
+
+    /* 说明区-场景点 */
+    .scenario-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      margin-top: 0.4rem;
+    }
+    .scenario-list li {
+      background: #f2e4d2;
+      padding: 0.2rem 1rem 0.2rem 1.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      position: relative;
+      color: #3d2f22;
+    }
+    .scenario-list li::before {
+      content: "⚡";
+      position: absolute;
+      left: 8px;
+      font-size: 0.8rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #f3e9db;
+      border-radius: 28px 8px 28px 8px;
+      padding: 1.6rem 2rem;
+      border-left: 6px solid #cda87b;
+    }
+    .faq-item {
+      margin-bottom: 0.9rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #4b3521;
+      margin-bottom: 0.1rem;
+    }
+    .faq-item p {
+      margin-left: 0.2rem;
+      color: #3f3223;
+    }
+
+    /* 底部链接 */
+    .footer-link {
+      text-align: center;
+      padding: 1.6rem 0 0.2rem;
+      font-size: 1rem;
+      border-top: 1px solid #dcc8ae;
+      margin-top: 1rem;
+    }
+    .footer-link a {
+      color: #6b4b2e;
+      text-decoration: none;
+      font-weight: 530;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      background: #f0e0ca;
+      transition: background 0.15s, color 0.1s;
+      display: inline-block;
+    }
+    .footer-link a:hover {
+      background: #dbbd9a;
+      color: #392d1f;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      body { padding: 1.2rem 0.8rem; }
+      .card { padding: 1.6rem 1.2rem; }
+      .hero h1 { font-size: 2.4rem; }
+      .grid-2 { grid-template-columns: 1fr; gap: 1rem; }
+      .hero .sub { font-size: 1rem; }
+      .faq-summary { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Hero 区 -->
+    <div class="hero">
+      <h1>雷速体育</h1>
+      <div class="tagline">⚽ 信息聚合 · 赛事导航</div>
+      <p class="sub">一处汇集国内外体育赛程、即时数据、球队动态的信息索引站。适合日常关注比赛的朋友。</p>
+    </div>
+
+    <!-- 介绍卡片 -->
+    <div class="card">
+      <div class="section-title">关于站点</div>
+      <p style="margin-bottom: 1rem;">
+        <strong>雷速体育</strong> 是一个以体育赛事信息整合为主的轻量型站点，提供多家主流赛事的赛程、比分追踪、联赛数据等参考内容。站点结构偏向实用导航，方便浏览者快速查找当天的关键比赛与球队近况，不做深度分析或投注导向。数据来源均标注明细，保持信息透明度。
+      </p>
+      <p>
+        无论你关注欧洲五大联赛、NBA、中超还是热门杯赛，这里都能找到简明扼要的赛程列表与实时变动提示。界面采用卡片式布局，适配手机和电脑，信息层级清晰。
+      </p>
+    </div>
+
+    <!-- 优势区 · 两个特点卡片 + 场景 -->
+    <div class="card">
+      <div class="section-title">特点与适用场景</div>
+      <div class="grid-2">
+        <div class="grid-item">
+          <h3>📋 赛事全覆盖</h3>
+          <p>覆盖足球、篮球、网球、电竞等主流项目，提供日赛、周赛以及焦点战的快速入口。页面更新及时，减少多平台跳转。</p>
+        </div>
+        <div class="grid-item">
+          <h3>🔎 数据索引清晰</h3>
+          <p>按联赛、时间、热门程度分类展示，关键数据如比分、红黄牌、换人信息等一目了然。同时保留深度统计以外链形式补充。</p>
+        </div>
+      </div>
+      <div style="margin-top: 1.2rem;">
+        <p style="font-weight: 500; color: #4f3926;">常见使用场景：</p>
+        <ul class="scenario-list">
+          <li>早晨快速浏览前一晚赛果</li>
+          <li>计划观看晚间焦点战</li>
+          <li>比较不同联赛球队数据</li>
+          <li>查找近期赛程与转播信息</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 说明区 + 可信提示 -->
+    <div class="card">
+      <div class="section-title">可信说明</div>
+      <p>
+        站点内容整合自公开体育数据及官方赛事信息，不提供任何形式的投注、博彩引导或预测服务。雷速体育仅作为信息聚合与导航工具，不对第三方来源的准确性做绝对保证，建议用户通过官方渠道核实关键信息。使用过程中如发现数据异常，可通过站点反馈渠道告知。
+      </p>
+      <p style="margin-top: 0.7rem;">
+        另外，页面不含隐蔽追踪器或恶意脚本，访问体验轻量。建议搭配主流浏览器使用，保持缓存更新以获得最新赛程。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要区 -->
+    <div class="card">
+      <div class="section-title">常见疑问 · 摘要</div>
+      <div class="faq-summary">
+        <div class="faq-item">
+          <strong>▸ 雷速体育需要注册吗？</strong>
+          <p>不需要。目前所有赛程与数据页面均直接可见，无需登录或绑定手机。</p>
+        </div>
+        <div class="faq-item">
+          <strong>▸ 数据多久更新一次？</strong>
+          <p>比赛中实时数据约每分钟刷新，赛程与赛果在比赛结束后数分钟内同步。非高峰时段也保持每日多次同步。</p>
+        </div>
+        <div class="faq-item">
+          <strong>▸ 移动端适配如何？</strong>
+          <p>大部分页面采用响应式设计，手机浏览器可直接使用。部分深度统计表格建议横屏或使用平板查看。</p>
+        </div>
+        <div class="faq-item" style="margin-bottom: 0;">
+          <strong>▸ 是否有官方 App？</strong>
+          <p>目前以网页版为主，未提供独立 App。可把站点添加到手机桌面获得类似应用体验。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-link">
+      <span style="color: #4e3826;">更多信息与实时赛程，欢迎前往 </span>
+      <a href="https://desktop-leisu.com">雷速体育</a>
+      <span style="color: #4e3826;"> 查阅。</span>
+      <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #6b5a49;">
+        © 站点介绍 · 非官方页面 · 仅供信息参考
+      </div>
+    </div>
+  </div>
+</body>
+</html>
